@@ -1,0 +1,89 @@
+/* Background gradient animation */
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  line-height: 1.7;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #333;
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #222;
+  margin-bottom: 10px;
+}
+
+/* Links */
+a {
+  color: #007acc;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: #ff6600;
+  text-shadow: 0 0 10px rgba(255, 102, 0, 0.7);
+}
+
+/* Skills list */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+.skills li {
+  background: rgba(255,255,255,0.2);
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+.skills li:hover {
+  transform: scale(1.1);
+  background: rgba(255,255,255,0.4);
+}
+
+/* Project cards */
+.project-card {
+  background: rgba(255,255,255,0.2);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+.fade-in.delay-1 { animation-delay: 0.5s; }
+.fade-in.delay-2 { animation-delay: 1s; }
+.fade-in.delay-3 { animation-delay: 1.5s; }
+.fade-in.delay-4 { animation-delay: 2s; }
+.fade-in.delay-5 { animation-delay: 2.5s; }
+.fade-in.delay-6 { animation-delay: 3s; }
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 1s forwards;
+}
+.slide-up.delay-1 { animation-delay: 0.8s; }
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
