@@ -1,34 +1,53 @@
-/* Background gradient animation - hacker green */
-body {
-  font-family: Arial, sans-serif;
-  margin: 40px;
-  line-height: 1.7;
-  background: linear-gradient(-45deg, #00ff00, #32cd32, #228b22, #006400);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  color: #e0ffe0; /* light green text */
-}
-
-/* Headings with glow */
-h1, h2, h3 {
+/* Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: black;
   color: #00ff00;
-  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-  margin-bottom: 10px;
-  animation: glowPulse 2s infinite alternate;
+  font-family: 'Courier New', monospace;
 }
 
-/* Links with hacker glow */
+/* Matrix canvas covers background */
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: black;
+}
+
+/* Content styling */
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  line-height: 1.7;
+}
+
+/* Neon headings */
+.neon {
+  color: #00ff00;
+  text-shadow: 0 0 5px #00ff00, 0 0 20px #00ff00, 0 0 40px #00ff00;
+  animation: neonPulse 2s infinite alternate;
+}
+
+/* Links with glitch effect */
 a {
   color: #00ff00;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 a:hover {
-  color: #39ff14;
-  text-shadow: 0 0 15px #39ff14, 0 0 30px #39ff14;
+  color: #0ff;
+  text-shadow: 2px 2px #ff00ff, -2px -2px #00ff00;
+  animation: glitch 0.3s infinite;
 }
 
-/* Skills list - glowing boxes */
+/* Skills list */
 .skills {
   display: flex;
   flex-wrap: wrap;
@@ -48,7 +67,7 @@ a:hover {
   box-shadow: 0 0 15px #00ff00;
 }
 
-/* Project cards with hacker glow */
+/* Project cards */
 .project-card {
   background: rgba(0, 255, 0, 0.05);
   padding: 20px;
@@ -63,37 +82,12 @@ a:hover {
 }
 
 /* Animations */
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1.5s forwards;
-}
-.fade-in.delay-1 { animation-delay: 0.5s; }
-.fade-in.delay-2 { animation-delay: 1s; }
-.fade-in.delay-3 { animation-delay: 1.5s; }
-.fade-in.delay-4 { animation-delay: 2s; }
-.fade-in.delay-5 { animation-delay: 2.5s; }
-.fade-in.delay-6 { animation-delay: 3s; }
-
-.slide-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: slideUp 1s forwards;
-}
-.slide-up.delay-1 { animation-delay: 0.8s; }
-
-/* Keyframes */
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-@keyframes slideUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-@keyframes glowPulse {
+@keyframes neonPulse {
   from { text-shadow: 0 0 5px #00ff00; }
-  to { text-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00; }
+  to { text-shadow: 0 0 40px #00ff00, 0 0 80px #00ff00; }
+}
+@keyframes glitch {
+  0% { transform: translate(2px, -2px); }
+  50% { transform: translate(-2px, 2px); }
+  100% { transform: translate(0,0); }
 }
